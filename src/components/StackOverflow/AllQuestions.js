@@ -10,13 +10,9 @@ function AllQuestions({ data }) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
-<<<<<<< HEAD
   let tags = data?.tags && data.tags.length > 0 ? JSON.parse(data.tags[0]) : [];
 
-=======
-   let tags = data?.tags && data.tags.length > 0 ? JSON.parse(data.tags[0]) : [];
-  
->>>>>>> bc510f1dcc4f9415dd54af9f4efcf846945a7209
+
   return (
     <div className="all-questions">
       <div className="all-questions-container">
