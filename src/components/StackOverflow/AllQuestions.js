@@ -10,8 +10,8 @@ function AllQuestions({ data }) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
-  let tags = JSON.parse(data?.tags[0]);
-  // console.log();
+   let tags = data?.tags && data.tags.length > 0 ? JSON.parse(data.tags[0]) : [];
+  
   return (
     <div className="all-questions">
       <div className="all-questions-container">
