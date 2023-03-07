@@ -75,7 +75,14 @@ function Index() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
+//     try {
+//     const response = await axios.post('http://localhost:5000/api/question', { question });
+//     console.log(response.data);
+//     setResponse(response.data.answer);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
     if (title !== "" && body !== "") {
       const bodyJSON = {
@@ -85,9 +92,9 @@ function Index() {
         user: user,
       };
       await axios
-        .post("/api/question", bodyJSON)
+        .post("http://localhost:5000/api/question", bodyJSON)
         .then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
           alert("Question added successfully");
           history.push("/");
         })

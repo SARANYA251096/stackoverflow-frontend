@@ -9,10 +9,12 @@ function Index() {
 
   useEffect(() => {
     async function getQuestion() {
-      await axios.get("/api/question").then((res) => {
-        setQuestions(res.data.reverse());
-        // console.log(res.data)
-      });
+      await axios
+        .get("http://localhost:5000/api/question")
+        .then((res) => {
+          setQuestions(res.data.reverse());
+          console.log(res.data);
+        });
     }
     getQuestion();
   }, []);
