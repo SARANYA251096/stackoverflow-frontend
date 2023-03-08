@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useSelector } from "react-redux";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; // ES6
+import { Editor, EditorState, convertToRaw } from "draft-js";
+import "draft-js/dist/Draft.css";
 import "./index.css";
-import Editor from "react-quill/lib/toolbar";
 import axios from "axios";
 import { TagsInput } from "react-tag-input-component";
 import { selectUser } from "../../feature/userSlice";
@@ -69,20 +68,19 @@ function Index() {
   const [tag, setTag] = useState([]);
   const history = useHistory();
 
-  const handleQuill = (value) => {
-    setBody(value);
-  };
+    const [editorState, setEditorState] = useState(() =>
+      EditorState.createEmpty()
+    );
 
+   const handleEditorChange = (newEditorState) => {
+  const contentState = newEditorState.getCurrentContent();
+  const newBody = convertToRaw(contentState);
+  setBody(JSON.stringify(newBody));
+  setEditorState(newEditorState);
+};
+    
   const handleSubmit = async (e) => {
     e.preventDefault();
-//     try {
-//     const response = await axios.post('http://localhost:5000/api/question', { question });
-//     console.log(response.data);
-//     setResponse(response.data.answer);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
 
     if (title !== "" && body !== "") {
       const bodyJSON = {
@@ -133,12 +131,15 @@ function Index() {
                   Include all the information someone would need to answer your
                   question
                 </small>
-                <ReactQuill
+                <Editor
+                  editorState={editorState}
                   value={body}
-                  onChange={handleQuill}
                   modules={Editor.modules}
                   className="react-quill"
-                  theme="snow"
+                  onChange={handleEditorChange}
+                  placeholder="Enter your answer"
+                  style={{ height: "200px" }}
+                  
                 />
               </div>
             </div>

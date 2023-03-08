@@ -1,9 +1,9 @@
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import HistoryIcon from "@material-ui/icons/History";
-import ReactQuill from "react-quill";
-import Editor from "react-quill/lib/toolbar";
+import "draft-js/dist/Draft.css";
+import { Editor, EditorState } from "draft-js";
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
 import { Link } from "react-router-dom";
@@ -43,10 +43,7 @@ function MainQuestion() {
       matchVisual: false,
     },
   };
-  /*
-   * Quill editor formats
-   * See https://quilljs.com/docs/formats/
-   */
+   
   Editor.formats = [
     "header",
     "font",
@@ -75,9 +72,14 @@ function MainQuestion() {
   // const [comments, setComments] = useState([]);
   const user = useSelector(selectUser);
 
-  const handleQuill = (value) => {
-    setAnswer(value);
-  };
+    const [editorState, setEditorState] = useState(() =>
+      EditorState.createEmpty()
+    );
+
+    const handleEditorChange = (newEditorState) => {
+      setEditorState(newEditorState);
+    };
+
 
   useEffect(() => {
     async function getFunctionDetails() {
@@ -186,6 +188,7 @@ function MainQuestion() {
                 </small>
                 <div className="auth-details">
                   <Avatar {...stringAvatar(questionData?.user?.displayName)} />
+
                   <p>
                     {questionData?.user?.displayName
                       ? questionData?.user?.displayName
@@ -297,14 +300,6 @@ function MainQuestion() {
             </>
           ))}
         </div>
-        {/* <div className="questions">
-          <div className="question">
-            <AllQuestions />
-            <AllQuestions />
-            <AllQuestions />
-            <AllQuestions />
-          </div>
-        </div> */}
       </div>
       <div className="main-answer">
         <h3
@@ -316,15 +311,15 @@ function MainQuestion() {
         >
           Your Answer
         </h3>
-        <ReactQuill
+      
+        <Editor
+          editorState={editorState}
           value={answer}
-          onChange={handleQuill}
           modules={Editor.modules}
-          className="react-quill"
-          theme="snow"
-          style={{
-            height: "200px",
-          }}
+          className='react-quill'
+          onChange={handleEditorChange}
+          placeholder="Enter your answer"
+          style={{ minHeight: "200px" }}
         />
       </div>
       <button
