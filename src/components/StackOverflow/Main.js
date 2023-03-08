@@ -1,5 +1,4 @@
 import React from "react";
-import FilterListIcon from "@material-ui/icons/FilterList";
 import "./css/Main.css";
 import AllQuestions from "./AllQuestions";
 import { Link } from "react-router-dom";
@@ -41,7 +40,7 @@ function Main({ questions }) {
               </div>
             </div>
             <div className="main-filter-item">
-              <FilterListIcon />
+          
               <p>Filter</p>
             </div>
           </div>

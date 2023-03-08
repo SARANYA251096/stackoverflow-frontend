@@ -1,7 +1,7 @@
 import { Avatar } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import BookmarkIcon from "@material-ui/icons/Bookmark";
-import HistoryIcon from "@material-ui/icons/History";
+// import { BookmarkIcon } from "@chakra-ui/icons";
+// import HistoryIcon from "@material-ui/icons/History";
 import "draft-js/dist/Draft.css";
 import { Editor, EditorState } from "draft-js";
 import axios from "axios";
@@ -174,9 +174,9 @@ function MainQuestion() {
 
                 <p className="arrow">▼</p>
 
-                <BookmarkIcon />
+                {/* <BookmarkIcon w={6} h={6} color="blue.500" /> */}
 
-                <HistoryIcon />
+                {/* <HistoryIcon /> */}
               </div>
             </div>
             <div className="question-answer">
@@ -275,9 +275,9 @@ function MainQuestion() {
 
                     <p className="arrow">▼</p>
 
-                    <BookmarkIcon />
+                    {/* <BookmarkIcon /> */}
 
-                    <HistoryIcon />
+                    {/* <HistoryIcon /> */}
                   </div>
                 </div>
                 <div className="question-answer">
@@ -311,12 +311,12 @@ function MainQuestion() {
         >
           Your Answer
         </h3>
-      
+
         <Editor
           editorState={editorState}
           value={answer}
           modules={Editor.modules}
-          className='react-quill'
+          className="react-quill"
           onChange={handleEditorChange}
           placeholder="Enter your answer"
           style={{ minHeight: "200px" }}

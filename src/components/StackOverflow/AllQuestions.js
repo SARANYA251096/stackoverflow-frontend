@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "./css/AllQuestions.css";
 import ReactHtmlParser from "react-html-parser";
@@ -11,7 +11,6 @@ function AllQuestions({ data }) {
   }
 
   let tags = data?.tags && data.tags.length > 0 ? JSON.parse(data.tags[0]) : [];
-
 
   return (
     <div className="all-questions">
