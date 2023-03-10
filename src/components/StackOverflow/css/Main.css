@@ -93,6 +93,9 @@ button {
   border-bottom: 1px solid #eee;
   width: 100%;
 }
+.author{
+  height:20px;
+}
 
 pre {
   display: flex;

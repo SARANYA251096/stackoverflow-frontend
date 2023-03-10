@@ -1,13 +1,15 @@
 import React from "react";
 import "./css/index.css";
 import { FaSearch } from "react-icons/fa";
-import { Avatar } from "@chakra-ui/react";
+import { Avatar} from "@chakra-ui/react";
 import { AiOutlineInbox } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../feature/userSlice";
+
+
 
 function Header() {
   const user = useSelector(selectUser);
@@ -67,14 +69,17 @@ function Header() {
             {window.innerWidth < 768 && <FaSearch />}
             <Avatar
               size="sm"
+              bg="black"
+              color="white"
               style={{
                 cursor: "pointer",
-                width: "50px",
-                height: "50px",
+                width: "40px",
+                height: "40px",
               }}
-              {...stringAvatar(user && user.displayName)}
+              // {...stringAvatar(user && user.displayName)}
               onClick={() => auth.signOut()}
             />
+            {/* <AvatarIcon size={32} color="red" /> */}
             <AiOutlineInbox />
             Inbox
             <BiHelpCircle />

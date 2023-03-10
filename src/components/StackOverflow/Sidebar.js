@@ -19,8 +19,10 @@ function Sidebar() {
             <p>PUBLIC</p>
             <div className="link">
               <div className="link-tag">
-                <FaGlobe />
-                <Link to="/">Question</Link>
+                <FaGlobe size={25} style={{ marginRight: "10px" }} />
+                <Link to="/" style={{ marginLeft: "10px" }}>
+                  Question
+                </Link>
 
                 {/* <a href="/">Question</a> */}
               </div>
@@ -35,8 +37,10 @@ function Sidebar() {
             <p>COLLECTIVES</p>
             <div className="link">
               <div className="link-tag">
-                <FaStar />
-                <Link to="/">Explore Collectives</Link>
+                <FaStar size={25} style={{ marginRight: "10px" }} />
+                <Link to="/" style={{ marginLeft: "10px" }}>
+                  Explore Collectives
+                </Link>
 
                 {/* <a href="/">Explore Collectives</a> */}
               </div>
@@ -82,8 +86,10 @@ function Sidebar() {
           <div className="sidebar-option">
             <p>TEAMS</p>
             <div className="link-tag">
-              <FaBriefcase />
-              <Link to="/">Companies</Link>
+              <FaBriefcase size={25} style={{ marginRight: "10px" }} />
+              <Link to="/" style={{ marginLeft: "10px" }}>
+                Companies
+              </Link>
               {/* <a href="/">Companies</a> */}
             </div>
           </div>

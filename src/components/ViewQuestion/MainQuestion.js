@@ -43,7 +43,7 @@ function MainQuestion() {
       matchVisual: false,
     },
   };
-   
+
   Editor.formats = [
     "header",
     "font",
@@ -72,14 +72,13 @@ function MainQuestion() {
   // const [comments, setComments] = useState([]);
   const user = useSelector(selectUser);
 
-    const [editorState, setEditorState] = useState(() =>
-      EditorState.createEmpty()
-    );
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
 
-    const handleEditorChange = (newEditorState) => {
-      setEditorState(newEditorState);
-    };
-
+  const handleEditorChange = (newEditorState) => {
+    setEditorState(newEditorState);
+  };
 
   useEffect(() => {
     async function getFunctionDetails() {
@@ -186,15 +185,14 @@ function MainQuestion() {
                 <small>
                   asked {new Date(questionData?.created_at).toLocaleString()}
                 </small>
-                <div className="auth-details">
-                  <Avatar {...stringAvatar(questionData?.user?.displayName)} />
-
+                {/* <div className="auth-details">
+                  <Avatar/>
                   <p>
                     {questionData?.user?.displayName
                       ? questionData?.user?.displayName
                       : "Natalia lee"}
                   </p>
-                </div>
+                </div> */}
               </div>
               <div className="comments">
                 <div className="comment">
@@ -275,7 +273,7 @@ function MainQuestion() {
 
                     <p className="arrow">▼</p>
 
-                    <BsFillBookmarksFill/>
+                    <BsFillBookmarksFill />
 
                     <BiHistory />
                   </div>
@@ -286,14 +284,18 @@ function MainQuestion() {
                     <small>
                       asked {new Date(_q.created_at).toLocaleString()}
                     </small>
-                    <div className="auth-details">
-                      <Avatar {...stringAvatar(_q?.user?.displayName)} />
+                    {/* <div className="auth-details">
+                      <Avatar
+                        src={stringAvatar(user?.name)}
+                        alt={user?.name}
+                        size="sm"
+                      />
                       <p>
                         {_q?.user?.displayName
                           ? _q?.user?.displayName
                           : "Natalia lee"}
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
