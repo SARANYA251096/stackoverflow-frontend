@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import "draft-js/dist/Draft.css";
 import { Editor, EditorState } from "draft-js";
 import axios from "axios";
-import ReactHtmlParser from "react-html-parser";
+import HtmlReactParser from "html-react-parser";
 import { Link } from "react-router-dom";
 import "./index.css";
 import { useSelector } from "react-redux";
@@ -180,7 +180,7 @@ function MainQuestion() {
               </div>
             </div>
             <div className="question-answer">
-              <p>{ReactHtmlParser(questionData?.body)}</p>
+              <p>{HtmlReactParser(questionData?.body)}</p>
 
               <div className="author">
                 <small>
@@ -281,7 +281,7 @@ function MainQuestion() {
                   </div>
                 </div>
                 <div className="question-answer">
-                  {ReactHtmlParser(_q.answer)}
+                  {HtmlReactParser(_q.answer)}
                   <div className="author">
                     <small>
                       asked {new Date(_q.created_at).toLocaleString()}

@@ -1,7 +1,7 @@
 import { Avatar } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "./css/AllQuestions.css";
-import ReactHtmlParser from "react-html-parser";
+import HtmlReactParser from "html-react-parser";
 import { Link } from "react-router-dom";
 import { stringAvatar } from "../../utils/Avatar";
 
@@ -40,7 +40,7 @@ function AllQuestions({ data }) {
               maxWidth: "90%",
             }}
           >
-            <div>{ReactHtmlParser(truncate(data.body, 200))}</div>
+            <div>{HtmlReactParser(truncate(data.body, 200))}</div>
           </div>
           <div
             style={{
