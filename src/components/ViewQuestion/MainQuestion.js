@@ -1,7 +1,7 @@
 import { Avatar } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-// import { BookmarkIcon } from "@chakra-ui/icons";
-// import HistoryIcon from "@material-ui/icons/History";
+import { BsFillBookmarksFill } from "react-icons/bs";
+import { BiHistory } from "react-icons/bi";
 import "draft-js/dist/Draft.css";
 import { Editor, EditorState } from "draft-js";
 import axios from "axios";
@@ -174,9 +174,9 @@ function MainQuestion() {
 
                 <p className="arrow">▼</p>
 
-                {/* <BookmarkIcon w={6} h={6} color="blue.500" /> */}
+                <BsFillBookmarksFill w={6} h={6} color="blue.500" />
 
-                {/* <HistoryIcon /> */}
+                <BiHistory />
               </div>
             </div>
             <div className="question-answer">
@@ -275,9 +275,9 @@ function MainQuestion() {
 
                     <p className="arrow">▼</p>
 
-                    {/* <BookmarkIcon /> */}
+                    <BsFillBookmarksFill/>
 
-                    {/* <HistoryIcon /> */}
+                    <BiHistory />
                   </div>
                 </div>
                 <div className="question-answer">

@@ -1,10 +1,10 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Chip from "@material-ui/core/Chip";
-import Paper from "@material-ui/core/Paper";
-import TagFacesIcon from "@material-ui/icons/TagFaces";
+import { FaTag } from "react-icons/fa";
+import { createUseStyles } from "react-jss";
+import { BiChip } from "react-icons/bi";
+import { BsNewspaper } from "react-icons/bs";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = createUseStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ChipsArray() {
+const ChipsArray = () => {
   const classes = useStyles();
   const [chipData, setChipData] = React.useState([
     { key: 0, label: "Angular" },
@@ -35,25 +35,34 @@ export default function ChipsArray() {
   };
 
   return (
-    <Paper component="ul" className={classes.root}>
+    <div className={classes.root}>
       {chipData.map((data) => {
         let icon;
 
         if (data.label === "React") {
-          icon = <TagFacesIcon />;
+          icon = <FaTag />;
+        } else if (data.label === "Angular") {
+          icon = <BiChip />;
+        } else if (data.label === "jQuery") {
+          icon = <BsNewspaper />;
         }
 
         return (
-          <li key={data.key}>
-            <Chip
-              icon={icon}
-              label={data.label}
-              onDelete={data.label === "React" ? undefined : handleDelete(data)}
-              className={classes.chip}
-            />
-          </li>
+          <div key={data.key}>
+            <div className={classes.chip}>
+              {icon}
+              <span>{data.label}</span>
+              {data.label === "React" ? (
+                <span></span>
+              ) : (
+                <span onClick={handleDelete(data)}>X</span>
+              )}
+            </div>
+          </div>
         );
       })}
-    </Paper>
+    </div>
   );
-}
+};
+
+export default ChipsArray;

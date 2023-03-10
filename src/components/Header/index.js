@@ -1,10 +1,9 @@
 import React from "react";
 import "./css/index.css";
-import SearchIcon from "@material-ui/icons/Search";
-import { Avatar } from "@material-ui/core";
-// import Avatar from "@mui/material/Avatar";
-import InboxIcon from "@material-ui/icons/Inbox";
-import HelpIcon from "@material-ui/icons/Help";
+import { FaSearch } from "react-icons/fa";
+import { Avatar } from "@chakra-ui/react";
+import { AiOutlineInbox } from "react-icons/ai";
+import { BiHelpCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useSelector } from "react-redux";
@@ -59,23 +58,26 @@ function Header() {
         </div>
         <div className="header-middle">
           <div className="header-search-container">
-            <SearchIcon />
+            <FaSearch />
             <input type="text" placeholder="Search..." />
           </div>
         </div>
         <div className="header-right">
           <div className="header-right-container">
-            {window.innerWidth < 768 && <SearchIcon />}
-
+            {window.innerWidth < 768 && <FaSearch />}
             <Avatar
+              size="sm"
               style={{
                 cursor: "pointer",
+                width: "50px",
+                height: "50px",
               }}
               {...stringAvatar(user && user.displayName)}
               onClick={() => auth.signOut()}
             />
-            <InboxIcon />
-            <HelpIcon />
+            <AiOutlineInbox />
+            Inbox
+            <BiHelpCircle />
             <svg
               aria-hidden="true"
               class="svg-icon iconStackExchange"

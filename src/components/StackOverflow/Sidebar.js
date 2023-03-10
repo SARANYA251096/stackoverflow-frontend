@@ -1,7 +1,7 @@
 import React from "react";
-import PublicIcon from "@material-ui/icons/Public";
-import StarsIcon from "@material-ui/icons/Stars";
-import WorkIcon from "@material-ui/icons/Work";
+import { FaGlobe } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { FaBriefcase } from "react-icons/fa";
 import "./css/Sidebar.css";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ function Sidebar() {
             <p>PUBLIC</p>
             <div className="link">
               <div className="link-tag">
-                <PublicIcon />
+                <FaGlobe />
                 <Link to="/">Question</Link>
 
                 {/* <a href="/">Question</a> */}
@@ -35,7 +35,7 @@ function Sidebar() {
             <p>COLLECTIVES</p>
             <div className="link">
               <div className="link-tag">
-                <StarsIcon />
+                <FaStar />
                 <Link to="/">Explore Collectives</Link>
 
                 {/* <a href="/">Explore Collectives</a> */}
@@ -82,7 +82,7 @@ function Sidebar() {
           <div className="sidebar-option">
             <p>TEAMS</p>
             <div className="link-tag">
-              <WorkIcon />
+              <FaBriefcase />
               <Link to="/">Companies</Link>
               {/* <a href="/">Companies</a> */}
             </div>
