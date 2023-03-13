@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyAm2j5QCRCCJlRX0r1qBG_be1bXdXSRdyY",
-  authDomain: "stackoverflow-3f0d8.firebaseapp.com",
-  projectId: "stackoverflow-3f0d8",
-  storageBucket: "stackoverflow-3f0d8.appspot.com",
-  messagingSenderId: "76298589116",
-  appId: "1:76298589116:web:26ce6feaf0025dbdd511b9",
-  measurementId: "G-LDJE2JW8YE",
+  apiKey: "AIzaSyBhuzs_vsL-x_fp3K4nVNUfkLwMMrzj_as",
+  authDomain: "stackoverflow-5b9f1.firebaseapp.com",
+  projectId: "stackoverflow-5b9f1",
+  storageBucket: "stackoverflow-5b9f1.appspot.com",
+  messagingSenderId: "798567070309",
+  appId: "1:798567070309:web:09fe0b287dd528d80e248c",
+  measurementId: "G-T0JNSSMDYY",
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
