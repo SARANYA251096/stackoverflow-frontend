@@ -83,7 +83,9 @@ function MainQuestion() {
   useEffect(() => {
     async function getFunctionDetails() {
       await axios
-        .get(`/api/question/${id}`)
+        .get(
+          `https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/question/${id}`
+        )
         .then((res) => setQuestionData(res.data[0]))
         .catch((err) => console.log(err));
     }
@@ -92,7 +94,9 @@ function MainQuestion() {
 
   async function getUpdatedAnswer() {
     await axios
-      .get(`/api/question/${id}`)
+      .get(
+        `https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/question/${id}`
+      )
       .then((res) => setQuestionData(res.data[0]))
       .catch((err) => console.log(err));
   }
@@ -111,7 +115,11 @@ function MainQuestion() {
     };
 
     await axios
-      .post("/api/answer", body, config)
+      .post(
+        "https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/answer",
+        body,
+        config
+      )
       .then(() => {
         alert("Answer added successfully");
         setAnswer("");
@@ -127,12 +135,17 @@ function MainQuestion() {
         comment: comment,
         user: user,
       };
-      await axios.post(`/api/comment/${id}`, body).then((res) => {
-        setComment("");
-        setShow(false);
-        getUpdatedAnswer();
-        // console.log(res.data);
-      });
+      await axios
+        .post(
+          `https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/comment/${id}`,
+          body
+        )
+        .then((res) => {
+          setComment("");
+          setShow(false);
+          getUpdatedAnswer();
+          // console.log(res.data);
+        });
     }
 
     // setShow(true)
