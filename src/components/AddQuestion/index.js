@@ -90,7 +90,7 @@ function Index() {
         user: user,
       };
       await axios
-        .post("http://localhost:5000/api/question", bodyJSON)
+        .post("api/question", bodyJSON)
         .then((res) => {
           console.log(res.data);
           alert("Question added successfully");
