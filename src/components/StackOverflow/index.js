@@ -10,7 +10,9 @@ function Index() {
   useEffect(() => {
     async function getQuestion() {
       await axios
-        .get("http://localhost:5000/api/question")
+        .get(
+          "https://stackoverflowclone-backend-mii4.onrender.com/api/question"
+        )
         .then((res) => {
           setQuestions(res.data.reverse());
           console.log(res.data);

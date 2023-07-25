@@ -84,7 +84,7 @@ function MainQuestion() {
     async function getFunctionDetails() {
       await axios
         .get(
-          `https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/question/${id}`
+          `https://stackoverflowclone-backend-mii4.onrender.com/api/question/${id}`
         )
         .then((res) => setQuestionData(res.data[0]))
         .catch((err) => console.log(err));
@@ -95,7 +95,7 @@ function MainQuestion() {
   async function getUpdatedAnswer() {
     await axios
       .get(
-        `https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/question/${id}`
+        `https://stackoverflowclone-backend-mii4.onrender.com/api/question/${id}`
       )
       .then((res) => setQuestionData(res.data[0]))
       .catch((err) => console.log(err));
@@ -116,7 +116,7 @@ function MainQuestion() {
 
     await axios
       .post(
-        "https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/answer",
+        "https://stackoverflowclone-backend-mii4.onrender.com/api/answer",
         body,
         config
       )
@@ -137,7 +137,7 @@ function MainQuestion() {
       };
       await axios
         .post(
-          `https://rococo-sprinkles-8cb7f3.netlify.app/auth/api/comment/${id}`,
+          `https://stackoverflowclone-backend-mii4.onrender.com/api/comment/${id}`,
           body
         )
         .then((res) => {
